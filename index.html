@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LSBUD Member Portal</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Figtree:wght@400;500;600;700&family=Lato:wght@400;700&display=swap">
 <style>
 :root{--b:#07264E;--r:#CC0001;--y:#FFD21F;--m:#5d6b7e;--l:#e3e8ee}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -18,7 +18,7 @@ label{display:block;font-weight:600;font-size:13px;margin:14px 0 5px}
 .lg{display:inline-block;font:800 1em/1 Arial,Helvetica,sans-serif;letter-spacing:-.04em;color:var(--b)}.lg u{text-decoration:none;color:var(--r)}
 .st{display:block;width:0;min-width:100%;margin-top:.3em;font-size:.15em;font-weight:400;letter-spacing:.2em;text-align:justify;text-align-last:justify}
 .auth{min-height:100vh;display:grid;place-items:center;padding:20px;background:var(--b)}
-.auth form{background:#fff;width:100%;max-width:420px;padding:36px;border-radius:12px;position:relative}
+.auth form{background:#fff;width:100%;max-width:420px;padding:36px;border-radius:12px}
 .err{color:var(--r);font-size:13px;margin-top:10px;min-height:20px}.hint{color:var(--m);font-size:12px;margin-top:8px}
 .code{font-size:26px;letter-spacing:10px;text-align:center}
 #ap{display:flex}
@@ -48,19 +48,17 @@ td{padding:10px;border-bottom:1px solid var(--l)}
 .bars>div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;font-size:11px;color:var(--m)}
 .bars b{width:100%;background:var(--b);border-radius:4px 4px 0 0;position:relative;display:block}.bars b.mx{background:var(--r)}
 .bars i{position:absolute;top:-16px;width:100%;text-align:center;font-style:normal;color:#1c2b3f}
-.mp{display:grid;grid-template-columns:1fr 300px;gap:20px}
+.mp{display:grid;grid-template-columns:1fr 310px;gap:20px}
 .mc{padding:0;overflow:hidden;position:relative;height:calc(100vh - 220px);min-height:440px;margin:0}
-.mc svg{width:100%;height:100%;display:block}circle{cursor:pointer}
+.mc svg{width:100%;height:100%;display:block}.mc svg [onclick]{cursor:pointer}
 #g{transform-origin:50% 50%;transition:transform .3s}
-.no-s .t-s,.no-e .t-e,.no-a .t-a{display:none}
+.h1,.h2{display:none}
 @keyframes p{50%{opacity:.35}}.t-a{animation:p 1.6s infinite}
-.mb{position:absolute;top:12px;left:12px;right:12px;display:flex;gap:8px;flex-wrap:wrap;pointer-events:none}
-.mb>*{pointer-events:auto;background:#fff;padding:6px 12px;border-radius:20px;box-shadow:0 1px 6px #0003;font-size:12px;display:flex;gap:6px;align-items:center;cursor:pointer;font-weight:600;margin:0}
-.mb input{width:auto}.mb i{width:10px;height:10px;border-radius:50%;display:inline-block}
 .zm{position:absolute;right:12px;bottom:12px;display:flex;flex-direction:column;gap:4px}
 .zm button{width:34px;height:34px;border:0;border-radius:6px;background:#fff;box-shadow:0 1px 6px #0003;font-size:18px;cursor:pointer}
 .tag{position:absolute;left:12px;bottom:12px;background:#fffe;padding:4px 10px;border-radius:6px;font-size:12px;color:var(--m)}
-.mt{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--l)}.mt span{width:10px;height:10px;border-radius:50%}.mt b{margin-left:auto}
+.ly{display:flex;align-items:center;gap:8px;font-weight:500;margin:0;padding:7px 0;border-bottom:1px solid var(--l);cursor:pointer}
+.ly input{width:auto}.ly i{width:12px;height:12px;flex-shrink:0}.ly b{margin-left:auto;color:var(--m)}
 .dz{display:block;border:2px dashed #b9c5d6;border-radius:10px;padding:18px;text-align:center;cursor:pointer;margin:0 0 14px;font-weight:400}
 .dz.dg,.dz:hover{border-color:var(--b);background:#eef3f9}.dz b{display:block;color:var(--b);font-size:14px}.dz small{display:block;margin-top:6px;color:var(--m)}
 .dz p{margin:8px 0;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
@@ -69,17 +67,25 @@ td{padding:10px;border-bottom:1px solid var(--l)}
 .cl h3{font-size:12px;color:var(--m);padding:6px 12px;font-weight:600}
 .cl a{display:block;padding:8px 12px;border-radius:6px;cursor:pointer}.cl a:hover{background:#eef2f7}.cl a.on{background:#e4ebf4;color:var(--b);font-weight:600}
 .cl input{margin:0 4px 10px;width:calc(100% - 8px);padding:7px 10px}
-.fw{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
-.fw label{margin:0;display:flex;align-items:center;gap:6px;border:1px solid var(--l);padding:3px 12px;border-radius:20px;font-size:12px}.fw input{border:0;padding:2px;width:auto}
-.rh{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
-.ph{border:2px dashed #b9c5d6;border-radius:10px;padding:32px;text-align:center;color:var(--m);margin-top:12px}.ph b{color:var(--b);font-size:16px}.ph p{margin:8px auto 14px;max-width:520px}
+.fw{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.fw label{margin:0;display:flex;align-items:center;gap:6px;border:1px solid #e0e0e0;background:#fff;padding:3px 12px;border-radius:20px;font-size:12px}.fw input{border:0;padding:2px;width:auto}
+.md{background:#f9f9f9;box-shadow:none;font-family:Lato,Arial,sans-serif;color:#2e353b;padding:16px 18px}
+.rh{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.md .rh h2{font:700 20px Lato,Arial,sans-serif;color:#2e353b;margin:0}
+.mx{background:#fff;border:1px solid #e0e0e0;border-radius:6px;margin-bottom:8px;padding:12px 16px 0;overflow:hidden}.mx.ch{padding-bottom:12px}
+.mh{display:flex;justify-content:space-between;font-weight:700;font-size:13px;margin-bottom:6px}.mh span+span{color:#a0a6ad;letter-spacing:1px}
+.sv{text-align:center;font-weight:700;line-height:1.1;padding:6px 0 14px;color:#2e353b}
+.mr{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}.mr .mx{margin:0}
+.mt2{max-height:150px;overflow:auto;margin:0 -16px}.mt2 th{position:sticky;top:0;background:#fff;padding:6px 16px;border:0}
+.mt2 th span{display:inline-block;background:#e9f2fb;color:#509ee3;border-radius:6px;padding:2px 10px;font-size:12px;font-weight:700}
+.mt2 td{padding:8px 16px;font-size:13px;border-bottom:1px solid #eee}.tr{text-align:right}
+.rc{margin:0 -16px;padding:6px 16px;text-align:right;font-size:12px;border-top:1px solid #eee}
+.ph{background:#fff;border:2px dashed #b9c5d6;border-radius:10px;padding:32px;text-align:center;color:var(--m)}.ph b{color:var(--b);font-size:16px}.ph p{margin:8px auto 14px;max-width:520px}
 .toast{position:fixed;bottom:24px;right:24px;background:var(--b);color:#fff;padding:12px 18px;border-radius:8px;opacity:0;transform:translateY(20px);transition:.3s;pointer-events:none;z-index:99;max-width:340px}.toast.on{opacity:1;transform:none}
 @media(max-width:900px){.sb{position:fixed;z-index:20;left:-250px;transition:left .25s}.sb.open{left:0}#bg{display:inline-block}main{padding:18px}.top{padding:10px 18px}.mp,.rp{grid-template-columns:1fr}.mc{height:60vh}}
-@media(max-width:600px){#sr{display:none}}
+@media(max-width:600px){.mr{grid-template-columns:1fr}}
 @media print{body *{visibility:hidden}#rep,#rep *{visibility:visible}#rep{position:absolute;left:0;top:0;width:100%}.np{display:none!important}}
 </style></head><body>
-
-<svg id="sr" viewBox="0 0 100 100" style="position:fixed;top:28px;right:36px;width:90px"><polygon fill="#FFD21F" points="50,2 61.8,33.8 95.6,35.2 69,56.2 78.2,88.8 50,70 21.8,88.8 31,56.2 4.4,35.2 38.2,33.8"/><path d="M37 41l13 21 13-21" fill="none" stroke="#07264E" stroke-width="7"/></svg>
 
 <div class="auth" id="li"><form onsubmit="login(event)">
 <div data-logo style="font-size:46px;margin-bottom:24px"></div><h2>Sign in</h2>
@@ -109,28 +115,55 @@ const LOGO='<span class="lg">LSB<u>U</u>D<span class="st">SAFE DIGGING FOR <u>AL
 const MBU='';
 document.querySelectorAll('[data-logo]').forEach(e=>e.innerHTML=LOGO);
 
-const $=s=>document.querySelector(s),n=(a,b)=>a+Math.random()*(b-a)|0,pk=a=>a[n(0,a.length)],
+let sd=20261013;
+const $=s=>document.querySelector(s),n=(a,b)=>a+(sd=(sd*1664525+1013904223)>>>0)/4294967296*(b-a)|0,pk=a=>a[n(0,a.length)],
 esc=s=>String(s).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';'),
 fd=d=>d.toLocaleDateString('en-GB',{timeZone:'UTC'}),fz=b=>b>1e6?(b/1e6).toFixed(1)+' MB':Math.ceil(b/1e3)+' KB',
 P=(t,c)=>`<span class="pill ${c||''}">${t}</span>`,SC={Disabled:'r',Open:'y'},
-MO=['May','Jun','Jul','Aug','Sep','Oct'];
-let co='Cadent Gas',me,pg='dash',z=1,RR,RK,tm,st={lg:412,rp:37,sr:18642,mp:6310},UP=[],
+MO=['May','Jun','Jul','Aug','Sep','Oct'],
+MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+let co='Cadent Gas',me,pg='dash',z=1,RR,RK,tm,st={lg:412,rp:37,sr:18642,mp:6310},UP=[],MH=[],NU=[],
 U=[['John Smith','john.smith@cadentgas.com','Admin','Today','Active',28],['Sarah Jones','sarah.jones@cadentgas.com','Operator','Yesterday','Active',19],['Mark Taylor','mark.taylor@cadentgas.com','Operator','3 days ago','Active',11],['Emma Clarke','emma.clarke@cadentgas.com','Admin','Today','Active',24],['Dan Evans','dan.evans@cadentgas.com','Operator','2 weeks ago','Disabled',0]],
 T=[['LSB-1041','Map layer not loading','High','In progress','08/10/2026'],['LSB-1042','Add a second administrator','Low','Closed','01/10/2026']],
 A=[['<b>Sarah Jones</b> ran the Search Activity Report','12 min ago'],['<b>Mark Taylor</b> viewed the Elastic map','1 hr ago'],['<b>Emma Clarke</b> raised ticket LSB-1041','4 days ago'],['<b>John Smith</b> created operator Dan Evans','5 days ago']];
+for(let i=0,y=2026,m=9;i<81;i++){MH.push([y,MN[m],i?i>1?n(6e4,19e4):188526:70345]);NU.push([y+'-'+String(m+1).padStart(2,0),i?i>1?n(500,2200):2207:783]);if(--m<0){m=11;y--}}
+const TE=MH.reduce((s,r)=>s+r[2],0),TU=NU.reduce((s,r)=>s+r[1],0);
+
 const NAV=[['dash','Dashboard','▦'],['map','Elastic Map','◎'],['users','User Management','☰',1],['stats','Usage Analytics','▲',1],['rep','Reports','▤'],['sup','Support','ⓘ'],['set','Settings','✱',1]],
 PM=[['Access the Elastic map and dashboard',1],['Generate approved reports',1],['Raise support tickets',1],['View all usage statistics',2],['Create, disable and reset users',2],['Upload GIS data to the map',2],['Manage company settings',2]],
-TY={s:['Searches','#2f6db5','Utility search'],e:['Excavations','#F5B800','Excavation notice'],a:['Alerts','#CC0001','Strike-risk alert']},
-M=Array.from({length:44},(_,i)=>({x:n(50,850),y:n(60,510),t:pk('ssseea'),r:'REF-'+(48100+i),d:n(3,60),h:n(0,24)})),
-MK=M.map((m,i)=>`<circle class="t-${m.t}" cx="${m.x}" cy="${m.y}" r="8" fill="${TY[m.t][1]}" stroke="#fff" stroke-width="2" onclick="inf(${i})"></circle>`).join(''),
-BG=`<rect width="900" height="560" fill="#e8edf2"/><path d="M0 390C200 330 330 460 540 400S800 310 900 350" stroke="#c3d7ea" stroke-width="28" fill="none"/><rect x="400" y="130" width="100" height="60" rx="6" fill="#dbe6d9"/><rect x="660" y="340" width="120" height="80" rx="6" fill="#dbe6d9"/><g fill="none" stroke="#fff"><path stroke-width="8" d="M0 120H900M0 270H900M0 480H900M140 0V560M390 0V560M650 0V560"/><path stroke-width="3" d="M0 200H900M0 360H900M265 0V560M520 0V560M770 0V560"/></g><g fill="none" stroke="#07264E" stroke-width="4" stroke-dasharray="10 6"><path d="M20 120H390V480H830"/><path d="M140 20V270H650V540"/></g>`,
-LOC=['M1 3BB','B2 4QA','NG1 5FS','LE1 6RE','CB2 1TN','N1 9GU'],
+/* map groups: label, colour, info title */
+TY={s:['Searches','#2f6db5','Utility search'],e:['Excavations','#F5B800','Excavation notice'],a:['Alerts','#7b2cbf','Strike-risk alert'],pl:['Live planning applications','#00897b','Live planning application'],pp:['Past planning applications','#8a94a3','Past planning application'],tp:['Tree Preservation Orders','#2e6b2e','Tree Preservation Order (TPO)'],wt:['Open water','#4a9fd6','Open water']},
+/* asset pipelines (map units); 1 unit = 0.5 m */
+AP=[[[20,120],[390,120],[390,480],[830,480]],[[140,20],[140,270],[650,270],[650,540]]],
+dist=(x,y)=>Math.min(...AP.flatMap(l=>l.slice(1).map((b,i)=>{const a=l[i],dx=b[0]-a[0],dy=b[1]-a[1],t=Math.max(0,Math.min(1,((x-a[0])*dx+(y-a[1])*dy)/(dx*dx+dy*dy)));return Math.hypot(x-a[0]-t*dx,y-a[1]-t*dy)}))),
+/* f=true: within 15 m of assets, f=false: clear of assets, undefined: anywhere */
+mk=(g,c,f,fn)=>Array.from({length:c},(_,i)=>{let x,y,d;do{x=n(40,860);y=n(50,520);d=dist(x,y)}while(f===true?d>30:f===false?d<45:0);return{g,x,y,f,d:Math.round(d/2),...fn(i)}}),
+hh=()=>'Today at '+String(n(0,24)).padStart(2,0)+':00',
+DS=['Residential development, 24 dwellings','Single-storey rear extension','Change of use to retail','Solar farm','Highway improvement scheme','Warehouse extension','Garden room'],
+pL=()=>({r:'PA/26/'+n(100,999),i:[pk(DS),'Status: '+pk(['Under consideration','Awaiting decision','Consultation open']),'Submitted '+n(1,28)+'/09/2026']}),
+pP=()=>({r:'PA/'+pk([23,24,25])+'/'+n(100,999),i:[pk(DS),'Status: '+pk(['Approved','Refused','Withdrawn']),'Decided '+n(1,28)+'/'+n(1,12)+'/'+pk([2023,2024,2025])]}),
+tP=()=>({r:'TPO/'+n(100,999),i:[pk(['Oak','Beech','Sycamore','Ash','Lime']),'Individual tree order']}),
+M=[...mk('s',22,undefined,i=>({r:'REF-'+(48100+i),i:[hh()]})),...mk('e',12,undefined,i=>({r:'EXC-'+(7200+i),i:[hh(),'Status: Notified']})),...mk('a',6,undefined,i=>({r:'ALT-'+(310+i),i:[hh(),'Status: Open']})),
+...mk('pl',4,true,pL),...mk('pl',6,false,pL),...mk('pp',5,true,pP),...mk('pp',7,false,pP),...mk('tp',4,true,tP),...mk('tp',8,false,tP),
+...[{x:300,y:128,rx:30,ry:18,f:true,r:'Millbrook Pond',i:['Pond']},{x:560,y:190,rx:38,ry:22,f:false,r:'Hollin Pond',i:['Pond']},{x:760,y:120,rx:55,ry:30,f:false,r:'Calder Reservoir',i:['Reservoir']},{x:220,y:440,rx:50,ry:28,f:false,r:'Dunmere Lake',i:['Lake']},{x:390,y:415,rv:'M0 390C200 330 330 460 540 400S800 310 900 350',f:true,r:'River Medlow',i:['River','Crosses your assets in 2 places']}].map(m=>({g:'wt',d:Math.round(dist(m.x,m.y)/2),...m}))],
+shp=(m,i)=>{const k=`class="t-${m.g}${m.f===false?' no':''}" onclick="inf(${i})"`,c=TY[m.g][1],o=m.f?'#CC0001':'#fff',w=m.f?3:2,x=m.x,y=m.y;
+return m.rv?`<path ${k} d="${m.rv}" fill="none" stroke="${c}" stroke-width="22" stroke-linecap="round" opacity=".85"/>`
+:m.g=='wt'?`<ellipse ${k} cx="${x}" cy="${y}" rx="${m.rx}" ry="${m.ry}" fill="${c}" stroke="${o}" stroke-width="${w}"/>`
+:m.g=='pl'||m.g=='pp'?`<rect ${k} x="${x-7}" y="${y-7}" width="14" height="14" fill="${c}" stroke="${o}" stroke-width="${w}"/>`
+:m.g=='tp'?`<polygon ${k} points="${x},${y-9} ${x+8},${y+7} ${x-8},${y+7}" fill="${c}" stroke="${o}" stroke-width="${w}"/>`
+:`<circle ${k} cx="${x}" cy="${y}" r="8" fill="${c}" stroke="#fff" stroke-width="2"/>`},
+SV=M.map(shp),
+WT=SV.filter((_,i)=>M[i].g=='wt').join('')+'<circle class="t-wt" cx="390" cy="415" r="11" fill="none" stroke="#CC0001" stroke-width="3" pointer-events="none"/><circle class="t-wt" cx="650" cy="367" r="11" fill="none" stroke="#CC0001" stroke-width="3" pointer-events="none"/>',
+MK=SV.filter((_,i)=>M[i].g!='wt').join(''),
+BG=`<rect width="900" height="560" fill="#e8edf2"/><rect x="400" y="130" width="100" height="60" rx="6" fill="#dbe6d9"/><rect x="660" y="340" width="120" height="80" rx="6" fill="#dbe6d9"/><g fill="none" stroke="#fff"><path stroke-width="8" d="M0 120H900M0 270H900M0 480H900M140 0V560M390 0V560M650 0V560"/><path stroke-width="3" d="M0 200H900M0 360H900M265 0V560M520 0V560M770 0V560"/></g>`,
+AST=`<g fill="none" stroke="#CC0001" stroke-width="4"><path id="p1" d="M20 120H390V480H830"/><path id="p2" d="M140 20V270H650V540"/></g>`+[['p1',100],['p1',850],['p2',380],['p2',830]].map(([p,o])=>`<text font-size="11" font-weight="700" fill="#CC0001" stroke="#fff" stroke-width="3" paint-order="stroke"><textPath href="#${p}" startOffset="${o}"><tspan dy="-6">9in CI Open Cut</tspan></textPath></text>`).join(''),
 FT={zip:'Shapefile',shp:'Shapefile',shx:'Shapefile',dbf:'Shapefile',prj:'Shapefile',gpkg:'GeoPackage',kml:'KML'},
-/* name, headers, row builder, approved for operators, chart column, description */
-RT={usage:['Usage Report',['Date','Logins','Active users','Searches','Map views'],d=>[d,n(15,60),n(8,30),n(200,700),n(40,200)],0,1,'Portal logins, active users, searches and map views.'],
-oper:['Operator Activity Report',['Operator','Logins','Searches','Reports run','Last login'],()=>U.map(u=>[esc(u[0]),u[5],n(20,400),n(0,12),u[3]]),0,2,'Individual operator activity.'],
-srch:['Search Activity Report',['Date','Searches','Affecting assets','Top search area'],d=>{const s=n(200,700);return[d,s,n(10,s/5|0),pk(LOC)]},1,1,'Location searches across the selected date range.'],
-asst:['Asset Activity Report',['Date','Searches affecting assets','Excavation notices','Strike-risk alerts','Nearest work (m)'],d=>[d,n(10,120),n(5,60),n(0,8),n(2,60)],1,1,'Searches and excavation activity affecting your assets.']};
+/* name, headers, row builder, approved for operators, chart column */
+RT={life:['Lifetime Stats',[],0,1,0],
+usage:['Usage Report',['Date','Logins','Active users','Searches','Map views'],d=>[d,n(15,60),n(8,30),n(200,700),n(40,200)],0,1],
+oper:['Operator Activity Report',['Operator','Logins','Searches','Reports run','Last login'],()=>U.map(u=>[esc(u[0]),u[5],n(20,400),n(0,12),u[3]]),0,2],
+srch:['Search Activity Report',['Date','Searches','Affecting assets','Top search area'],d=>{const s=n(200,700);return[d,s,n(10,s/5|0),pk(['M1 3BB','B2 4QA','NG1 5FS','LE1 6RE','CB2 1TN','N1 9GU'])]},1,1],
+asst:['Asset Activity Report',['Date','Searches affecting assets','Excavation notices','Strike-risk alerts','Nearest work (m)'],d=>[d,n(10,120),n(5,60),n(0,8),n(2,60)],1,1]};
 
 /* helpers */
 const H=(t,s)=>`<h1>${t}</h1><p class="sub">${s}</p>`,
@@ -143,26 +176,32 @@ line=(d,l)=>{const m=Math.max(...d),k=Math.max(d.length-1,1),j=Math.ceil(d.lengt
 bars=(d,l)=>{const m=Math.max(...d);return `<div class="bars">${d.map((v,i)=>`<div><b${v==m?' class="mx"':''} style="height:${v/m*85}%"><i>${v.toLocaleString()}</i></b>${l[i]}</div>`).join('')}</div>`},
 log=t=>A.unshift([`<b>${esc(me[0])}</b> ${t}`,'Just now']),
 toast=m=>{const t=$('#ts');t.textContent=m;t.classList.add('on');clearTimeout(tm);tm=setTimeout(()=>t.classList.remove('on'),4000)},
-show=x=>{['li','mf','ap'].forEach(i=>$('#'+i).hidden=i!=x);$('#sr').hidden=x=='ap'},
+show=x=>['li','mf','ap'].forEach(i=>$('#'+i).hidden=i!=x),
+/* Metabase-style cards */
+mc=(t,b,c)=>`<div class="mx ${c||''}"><div class="mh"><span>${t}</span><span>···</span></div>${b}</div>`,
+sc=(t,v,s)=>mc(t,`<div class="sv" style="font-size:${s}px">${v}</div>`),
+tc=(t,h,r,al)=>mc(t,`<div class="mt2"><table><tr>${h.map((x,i)=>`<th class="t${al[i]}"><span>${x}</span>`).join('')}${r.map(w=>`<tr>${w.map((c,i)=>`<td class="t${al[i]}">${c}`).join('')}`).join('')}</table></div><div class="rc">${r.length} rows</div>`),
+LIFE=()=>sc('Total Enquiries',TE,88)+tc(esc(co)+' - Monthly Enquiries',['Year','Month','Enquiry Count'],MH,'rlr')+`<div class="mr">${sc('Avg Response Time','1.47',80)}${sc(esc(co)+' FREE Searches',TE-18e3+(18e3-17990),80)}</div>`+sc('Total Number of Users',TU,40)+tc(esc(co)+' PAYG Searches',['Number of Enquiries','Status'],[[9315,'PAID'],[8675,'UNPAID']],'rl')+tc('New Users Per Month',['Month','New Users'],NU,'lr'),
 gis=()=>me[2]!='Admin'?'':`<div class="card"><h2>Your GIS data</h2><label class="dz" ondragover="event.preventDefault();this.classList.add('dg')" ondragleave="this.classList.remove('dg')" ondrop="event.preventDefault();add(event.dataTransfer.files)"><input type="file" multiple hidden accept=".zip,.shp,.shx,.dbf,.prj,.gpkg,.kml" onchange="add(this.files)"><b>Drop files here or browse</b><p>${P('Shapefile (.zip, or .shp with .shx .dbf .prj)')}${P('GeoPackage (.gpkg)')}${P('KML (.kml)')}</p><small>Maximum 100 MB per file</small></label>${UP.length?TB(['File','Status',''],UP.map((u,i)=>[esc(u.n)+`<br><small>${u.t}, ${u.z}</small>`,u.s,`<button class="btn o s" onclick="rmu(${i})">Remove</button>`])):''}<p class="hint">In this demo files stay in your browser. In production they are stored securely and published as Elastic Maps layers.</p></div>`;
 
 /* views */
 const V={
 dash:()=>H('Executive Dashboard',esc(co)+' activity overview')+KP(kp())+`<div class="two"><div class="card ch"><h2>Logins per month</h2>${line(LG(),MO)}</div><div class="card"><h2>Latest activity</h2>${AL(6)}</div></div><div class="card"><h2>Your access as ${me[2]}</h2><div class="pm">${PM.map(p=>{const k=p[1]==1||me[2]=='Admin';return `<div><b style="color:${k?'var(--b)':'var(--r)'}">${k?'✓':'✕'}</b> ${p[0]}</div>`}).join('')}</div></div>`,
 
-map:()=>{z=1;const N=t=>M.filter(m=>m.t==t).length,r=[...Object.keys(TY).map(k=>[TY[k][1],TY[k][0],N(k)]),['#07264E','Assets monitored','1,284']];
-return H('Elastic Map','Activity around '+esc(co)+' assets')+`<div class="mp"><div class="card mc"><div class="mb">${Object.keys(TY).map(k=>`<label><input type="checkbox" checked onchange="$('#mv').classList.toggle('no-${k}')"><i style="background:${TY[k][1]}"></i>${TY[k][0]}</label>`).join('')}<div style="cursor:default"><i style="width:18px;height:0;border-top:3px dashed #07264E;border-radius:0"></i>Your assets</div></div>
+map:()=>{z=1;const N=g=>M.filter(m=>m.g==g).length,SH={pl:'2px',pp:'2px',tp:'0;clip-path:polygon(50% 0,100% 100%,0 100%)'};
+return H('Elastic Map','Activity around '+esc(co)+' assets')+`<div class="mp"><div class="card mc">
 <!-- PRODUCTION: replace this svg with <iframe src="https://YOUR-KIBANA/app/dashboards#/view/ID?embed=true" style="width:100%;height:100%;border:0"> -->
-<svg id="mv" viewBox="0 0 900 560" preserveAspectRatio="xMidYMid slice"><g id="g">${BG}${UP.map(u=>u.svg||'').join('')}${MK}</g></svg>
+<svg id="mv" viewBox="0 0 900 560" preserveAspectRatio="xMidYMid slice"><g id="g">${BG}${WT}${AST}${UP.map(u=>u.svg||'').join('')}${MK}</g></svg>
 <div class="zm"><button onclick="zm(.5)">+</button><button onclick="zm(-.5)">−</button></div><div class="tag">Mock Elastic Maps view, ready for Kibana embedding</div></div>
-<div><div class="card"><h2>Activity in the last 24 hours</h2>${r.map(x=>`<div class="mt"><span style="background:${x[0]}"></span>${x[1]}<b>${x[2]}</b></div>`).join('')}</div><div class="card"><h2>Selected activity</h2><div id="si">Select a marker on the map to see its details.</div></div>${gis()}</div></div>`},
+<div><div class="card"><h2>Map layers</h2><div class="ly" style="cursor:default"><i style="width:18px;height:4px;background:#CC0001"></i>Your assets: 9in CI Open Cut</div>${Object.keys(TY).map(g=>`<label class="ly"><input type="checkbox" checked onchange="lay('${g}',this.checked)"><i style="background:${TY[g][1]};border-radius:${SH[g]||'50%'}"></i>${TY[g][0]}<b>${N(g)}</b></label>`).join('')}<label class="ly"><input type="checkbox" onchange="aff(this.checked)"><i style="background:#fff;border:3px solid #CC0001"></i>Only items affecting your assets</label><p class="hint">A red outline means the item is within 15 m of your assets. Planning applications are squares (teal live, grey past) and TPOs are triangles.</p></div>
+<div class="card"><h2>Selected item</h2><div id="si">Select a marker on the map to see its details.</div></div>${gis()}</div></div>`},
 
 users:()=>H('User Management','Create and manage users for '+esc(co))+`<div class="card"><h2>Create user</h2><form onsubmit="addU(event)"><div class="row"><div><label>Name</label><input id="un" required></div><div><label>Email</label><input id="ue" type="email" required></div><div><label>Role</label><select id="ur"><option>Operator<option>Admin</select></div><div><label>Status</label><select id="us"><option>Active<option>Disabled</select></div><button class="btn">Add user</button></div></form></div><div class="card"><h2>Users (${U.length})</h2>${TB(['Name','Email','Role','Last login','Logins','Status','Actions'],U.map((u,i)=>[esc(u[0])+(u==me?' <small>(you)</small>':''),esc(u[1]),P(u[2]),u[3],u[5],P(u[4],SC[u[4]]),`<button class="btn o s" onclick="tg(${i})">${u[4]=='Active'?'Disable':'Enable'}</button> <button class="btn o s" onclick="rs(${i})">Reset password</button>`]))}</div>`,
 
 stats:()=>H('Usage Analytics','Usage across all operators in '+esc(co))+KP([...kp(),['Map sessions',st.mp.toLocaleString(),'Up 5% on last month']])+`<div class="two"><div class="card ch"><h2>Usage trend: logins per month</h2>${line(LG(),MO)}</div><div class="card ch"><h2>Searches by type</h2>${bars([6210,4120,5830,2482],['Utility','Excavation','Location','Alerts'])}</div></div><div class="two"><div class="card ch"><h2>Map sessions by week</h2>${bars([1180,1320,1405,1290,1115],['W1','W2','W3','W4','W5'])}</div><div class="card"><h2>Operator activity</h2>${TB(['Operator','Logins','Last login'],U.slice().sort((a,b)=>b[5]-a[5]).map(u=>[esc(u[0]),u[5],u[3]]))}</div></div><div class="card"><h2>Portal activity</h2>${AL(8)}</div>`,
 
 rep:()=>{const a=me[2]=='Admin',d=new Date(),e=d.toISOString().slice(0,10),ks=Object.keys(RT).filter(k=>a||RT[k][3]);d.setUTCDate(d.getUTCDate()-6);if(!ks.includes(RK))RK=ks[0];setTimeout(gen);
-return H('Reports','Analytics for '+esc(co))+`<div class="rp"><div class="cl"><input placeholder="Search for reports" oninput="fl(this.value)"><h3>Our analytics</h3>${ks.map(k=>`<a class="ci" data-k="${k}" onclick="gen(1,'${k}')">${RT[k][0]}</a>`).join('')}<h3>Metabase</h3><a class="ci" data-k="mb" onclick="mbv()">Live dashboard (embed)</a></div><div class="card" id="rep"><div class="fw np"><label>From <input id="rf" type="date" value="${d.toISOString().slice(0,10)}" onchange="gen()"></label><label>To <input id="re" type="date" value="${e}" onchange="gen()"></label></div><div id="rb"></div></div></div>`},
+return H('Reports','Analytics for '+esc(co))+`<div class="rp"><div class="cl"><input placeholder="Search for reports" oninput="fl(this.value)"><h3>Our analytics</h3>${ks.map(k=>`<a class="ci" data-k="${k}" onclick="gen(1,'${k}')">${RT[k][0]}</a>`).join('')}<h3>Metabase</h3><a class="ci" data-k="mb" onclick="mbv()">Live dashboard (embed)</a></div><div class="card md" id="rep"><div class="fw np"><label>From <input id="rf" type="date" value="${d.toISOString().slice(0,10)}" onchange="gen()"></label><label>To <input id="re" type="date" value="${e}" onchange="gen()"></label></div><div id="rb"></div></div></div>`},
 
 sup:()=>H('Support','Raise a request with the LSBUD team')+`<div class="two"><div class="card"><h2>New support request</h2><form onsubmit="sub(event)"><label>Subject</label><input id="sj" required maxlength="100"><label>Description</label><textarea id="sd" rows="6" required></textarea><label>Priority</label><select id="sp"><option>Low<option selected>Medium<option>High<option>Urgent</select><button class="btn" style="margin-top:18px">Submit request</button></form><p class="hint">Requests are sent to enquiries@lsbud.co.uk.</p></div><div class="card"><h2>Ticket history</h2>${TB(['Reference','Subject','Priority','Status','Raised'],T.map(t=>[t[0],esc(t[1]),t[2],P(t[3],SC[t[3]]),t[4]]))}</div></div>`,
 
@@ -184,7 +223,9 @@ $('#e2').textContent='';me[3]='Today';me[5]++;st.lg++;log('signed in');pg='dash'
 
 /* map and GIS upload */
 const zm=d=>{z=Math.min(3,Math.max(1,z+d));$('#g').style.transform=`scale(${z})`},
-inf=i=>{const m=M[i],t=TY[m.t];$('#si').innerHTML=`<span class="pill" style="background:${t[1]};color:${m.t=='e'?'#1c2b3f':'#fff'}">${t[2]}</span><p style="margin-top:10px"><b>${m.r}</b></p><p>${m.d} m from your assets</p><p>Today at ${String(m.h).padStart(2,0)}:00</p><p>Status: ${m.t=='a'?'Open':'Logged'}</p>`},
+lay=(g,c)=>document.querySelectorAll('.t-'+g).forEach(e=>e.classList.toggle('h1',!c)),
+aff=c=>document.querySelectorAll('.no').forEach(e=>e.classList.toggle('h2',c)),
+inf=i=>{const m=M[i],t=TY[m.g];$('#si').innerHTML=`<span class="pill" style="background:${t[1]};color:${m.g=='e'?'#1c2b3f':'#fff'}">${t[2]}</span><p style="margin-top:10px"><b>${m.r}</b></p>${m.i.map(x=>`<p>${x}</p>`).join('')}<p>${m.d} m from your assets</p>${m.f===undefined?'':`<p style="margin-top:6px">${P(m.f?'Affects your assets':'Does not affect your assets',m.f?'r':'')}</p>`}`},
 rmu=i=>{log('removed GIS data '+esc(UP[i].n));UP.splice(i,1);go()};
 function kml(t,c){const g=[...new DOMParser().parseFromString(t,'text/xml').getElementsByTagName('coordinates')].map(e=>e.textContent.trim().split(/\s+/).map(p=>p.split(',').map(Number)).filter(p=>p.length>1&&!p.some(isNaN))).filter(l=>l.length);
 if(!g.length)return '';const a=g.flat(),x=a.map(p=>p[0]),y=a.map(p=>p[1]),x0=Math.min(...x),y0=Math.min(...y),s=Math.min(780/Math.max(Math.max(...x)-x0,1e-9),440/Math.max(Math.max(...y)-y0,1e-9)),q=p=>[60+(p[0]-x0)*s,510-(p[1]-y0)*s];
@@ -193,7 +234,7 @@ async function add(fl){for(const f of fl){const e=f.name.split('.').pop().toLowe
 if(!t){toast(f.name+' is not supported. Upload a shapefile (.zip), GeoPackage (.gpkg) or KML (.kml).');continue}
 if(f.size>1e8){toast(f.name+' is over the 100 MB limit.');continue}
 const u={n:f.name,t,z:fz(f.size),s:'Accepted. Preview needs server-side processing'};
-if(e=='kml')try{u.svg=kml(await f.text(),['#6f3fa8','#00897b','#8d5524'][UP.length%3]);u.s=u.svg?'Shown on map':'No geometry found'}catch(x){u.s='Could not read this file'}
+if(e=='kml')try{u.svg=kml(await f.text(),['#e65100','#c2185b','#37474f'][UP.length%3]);u.s=u.svg?'Shown on map':'No geometry found'}catch(x){u.s='Could not read this file'}
 UP.push(u);log('uploaded GIS data '+esc(f.name))}
 go()}
 
@@ -204,18 +245,20 @@ U.push([nm,em,r,'Never',$('#us').value,0]);log(`created ${r.toLowerCase()} ${esc
 const tg=i=>{const u=U[i];if(u==me)return toast("You can't disable your own account");u[4]=u[4]=='Active'?'Disabled':'Active';log(`${u[4]=='Active'?'enabled':'disabled'} ${esc(u[0])}`);go()},
 rs=i=>{log(`reset the password for ${esc(U[i][0])}`);toast('Password reset link sent to '+U[i][1])};
 
-/* reports (Metabase-style) */
+/* reports (Metabase-style dashboards) */
 const fl=v=>document.querySelectorAll('.ci').forEach(e=>e.hidden=!e.textContent.toLowerCase().includes(v.toLowerCase())),
 on=()=>document.querySelectorAll('.ci').forEach(e=>e.classList.toggle('on',e.dataset.k==RK));
-function gen(c,k){if(k)RK=k;const r=RT[RK],f=new Date($('#rf').value),x=new Date($('#re').value),ds=[],o=RK=='oper';
+function gen(c,k){if(k)RK=k;const r=RT[RK],f=new Date($('#rf').value),x=new Date($('#re').value),ds=[],o=RK=='oper',L=RK=='life';
 if(f>x)return toast('The From date must be before the To date');
 for(let d=new Date(f);d<=x&&ds.length<31;d.setUTCDate(d.getUTCDate()+1))ds.push(fd(d));
-const R=RR={t:r[0],h:r[1],r:o?r[2]():ds.map(r[2])},v=R.r.map(w=>w[r[4]]),s=v.reduce((a,b)=>a+b,0),m=Math.max(...v);
+const R=RR=L?{t:r[0],h:['Year','Month','Enquiry Count'],r:MH}:{t:r[0],h:r[1],r:o?r[2]():ds.map(r[2])};
 if(c){st.rp++;log('ran the '+r[0])}
-on();$('.fw').hidden=0;
-$('#rb').innerHTML=`<div class="rh"><div><h2 style="font-size:20px;margin:0">${r[0]}</h2><small>${r[5]} Last updated just now.</small></div><div class="np"><button class="btn o s" onclick="csv()">Download CSV</button> <button class="btn s" onclick="window.print()">Download PDF</button></div></div>${KP([['Total '+r[1][r[4]].toLowerCase(),s.toLocaleString(),fd(f)+' to '+fd(x)],['Average per '+(o?'operator':'day'),Math.round(s/v.length).toLocaleString(),'Across '+v.length+(o?' operators':' days')],['Peak',m.toLocaleString(),R.r[v.indexOf(m)][0]]])}<div class="two"><div class="card ch"><h2>${r[1][r[4]]} ${o?'by operator':'by day'}</h2>${o?bars(v,R.r.map(w=>w[0].split(' ')[0])):line(v,R.r.map(w=>w[0].slice(0,5)))}</div><div class="card"><h2>Detail</h2>${TB(R.h,R.r)}</div></div>`}
+on();$('.fw').hidden=L;let b;
+if(L)b=LIFE();else{const v=R.r.map(w=>w[r[4]]),s=v.reduce((a,q)=>a+q,0),m=Math.max(...v),al=R.r[0].map(q=>typeof q=='number'?'r':'l').join('');
+b=sc('Total '+r[1][r[4]].toLowerCase(),s,72)+`<div class="mr">${sc('Average per '+(o?'operator':'day'),Math.round(s/v.length),60)}${sc('Peak ('+R.r[v.indexOf(m)][0]+')',m,60)}</div>`+mc(r[1][r[4]]+(o?' by operator':' by day'),o?bars(v,R.r.map(w=>w[0].split(' ')[0])):line(v,R.r.map(w=>w[0].slice(0,5))),'ch')+tc('Detail',R.h,R.r,al)}
+$('#rb').innerHTML=`<div class="rh"><h2>${L?esc(co)+' ':''}${r[0]}</h2><div class="np"><button class="btn o s" onclick="csv()">Download CSV</button> <button class="btn s" onclick="window.print()">Download PDF</button></div></div>${b}`}
 function mbv(){RK='mb';on();$('.fw').hidden=1;
-$('#rb').innerHTML='<h2 style="font-size:20px">Live Metabase dashboard</h2>'+(MBU?`<iframe src="${esc(MBU)}" style="width:100%;height:720px;border:0" title="Metabase dashboard"></iframe>`:`<div class="ph"><b>Metabase is not connected yet</b><p>This area will show your live Metabase dashboards, filtered to ${esc(co)}. Signed embedding needs a security key from LSBUD IT, which is set up once this concept is signed off.</p>${['Portal','API or webhook','Metabase','Report'].map(x=>P(x)).join(' ➜ ')}</div>`)}
+$('#rb').innerHTML='<div class="rh"><h2>Live Metabase dashboard</h2></div>'+(MBU?`<iframe src="${esc(MBU)}" style="width:100%;height:720px;border:0" title="Metabase dashboard"></iframe>`:`<div class="ph"><b>Metabase is not connected yet</b><p>This area will show your live Metabase dashboards, filtered to ${esc(co)}. Signed embedding needs a security key from LSBUD IT, which is set up once this concept is signed off.</p>${['Portal','API or webhook','Metabase','Report'].map(x=>P(x)).join(' ➜ ')}</div>`)}
 const csv=()=>{const q=v=>'"'+String(v).replace(/"/g,'""')+'"',a=document.createElement('a');
 a.href=URL.createObjectURL(new Blob([[RR.h,...RR.r].map(r=>r.map(q).join(',')).join('\n')],{type:'text/csv'}));a.download=RR.t.replace(/ /g,'_')+'.csv';a.click()};
 
